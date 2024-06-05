@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<style>
+    table tr td {
+        border: 1px solid #cccccc; 
+        padding: 10px;
+    }
+</style>
+<body>
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse">
+        <tr style="text-align: center;">
+            <td>제목</td>
+            <td>내용</td>
+            <td>생성일시</td>
+        </tr>
+        <th:block th:each="board : ${board}">
+            <tr>
+                <td><a th:href="@{/board/boarddetail(id = ${board.boardID})}" th:text="${board.BoardTitle}"></a></td>
+                <td th:text="${board.BoardContent}"></td>
+                <td th:text="${board.CreateAt}"></td>
+            </tr>
+            </a>
+        </th:block>
+    </table>
+
+</body>
+
+</html>

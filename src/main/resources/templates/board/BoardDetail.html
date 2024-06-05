@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boardDetail</title>
+</head>
+<style>
+    table tr td {
+        border: 1px solid #cccccc; 
+        padding: 10px;
+    }
+    table tr td:nth-child(2){
+        width: 70%;
+    }
+</style>
+<body>
+    <form action="/board/updateboard" method="post" name="boardVO" enctype="multipart/form-data">
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse">
+        <tr style="text-align: center;">
+            <td>제목</td>
+            <td th:text="${boardVO.boardTitle}"></td>
+            <input type="hidden" th:value="${boardVO.boardID}" name="boardID">
+            <input type="hidden" th:value="${boardVO.boardTitle}" name="BoardTitle">
+        </tr>
+        <tr style="text-align: center;">
+            <td>내용</td>
+            <td th:text="${boardVO.BoardContent}"></td>
+            <input type="hidden" th:value="${boardVO.BoardContent}" name="BoardContent">
+        </tr>
+        <tr>
+            <td>생성일자</td>
+            <td th:text="${boardVO.CreateAt}"></td>
+        </tr>
+        <tr>
+            <td>이미지</td>
+            <td>
+                <div th:if = "${filePath != ''}">
+                <img th:src="@{${filePath}}" alt="img">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">수정하기</button>
+    </form>
+    <button type="button" th:onclick="|deleteBoard('${boardVO.BoardID}')|">삭제</button>
+
+    <script>
+        function deleteBoard(id){
+
+            if(confirm("삭제하시겠습니까?")){
+                location.replace("http://localhost:8080/board/boardremove?id="+id);
+            }
+            
+        }
+    </script>
+</body>
+</html>

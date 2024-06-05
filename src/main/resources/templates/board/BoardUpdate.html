@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boardUpdate</title>
+</head>
+<style>
+    table tr td {
+        border: 1px solid #cccccc; 
+        padding: 10px;
+    }
+    table tr td:nth-child(2){
+        width: 70%;
+    }
+</style>
+<body>
+    <form action="/board/boardupdatedo" method="post">
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse">
+        <tr style="text-align: center;">
+            <td>제목</td>
+            <td><input type="text" th:value="*{boardVO.boardTitle}" name="BoardTitle"></td>
+        </tr>
+        <tr style="text-align: center;">
+            <td>내용</td>
+            <td><input type="text" th:value="*{boardVO.BoardContent}" name="BoardContent"></td>
+        </tr>
+        <tr>
+            <td>생성일자</td>
+            <td th:text="${boardVO.CreateAt}"></td>
+        </tr>
+        <tr>
+            <td>이미지</td>
+            <td>
+                <div th:if = "${filePath != ''}">
+                <img th:src="@{${filePath}}" alt="img">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="수정하기">
+    </form>
+</body>
+</html>

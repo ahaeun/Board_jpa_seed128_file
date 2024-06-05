@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Add</title>
+</head>
+<body>
+    <form action="/board/writedo" method="post" name="boardAdd" enctype="multipart/form-data">
+        제목 : <input type="text" name = "BoardTitle">
+        내용 : <textarea type="textarea" name="BoardContent"></textarea>
+        <input type="file" name="file">
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

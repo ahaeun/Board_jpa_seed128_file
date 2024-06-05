@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "server.tomcat.additional-resources",
+  "type": "java.lang.String",
+  "description": "A description for 'server.tomcat.additional-resources'"
+}]}
